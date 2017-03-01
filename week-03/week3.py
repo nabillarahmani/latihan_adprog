@@ -98,6 +98,7 @@ class Page:
         that will be written into the page.
         """
         # TODO Implement me!
+        self.paragraphs.append(paragraph)
         pass
 
     def render(self):
@@ -132,6 +133,10 @@ class TextRenderer:
         print text END OF TEXT PAGE
         """
         # TODO Implement me
+        if self.previous:
+            self.file.write("\n")
+        self.file.write(textwrap.fill(FMT_FOOTER, self.width))
+        self.previous = True
         pass
 
 

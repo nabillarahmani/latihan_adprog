@@ -135,7 +135,7 @@ class TextRenderer:
         # TODO Implement me
         if self.previous:
             self.file.write("\n")
-        self.file.write(textwrap.fill(FMT_FOOTER, self.width))
+        self.file.write(textwrap.fill(self.FMT_FOOTER, self.width))
         self.previous = True
         pass
 
@@ -169,18 +169,25 @@ class HtmlRenderer:
 
     def __init__(self, htmlWriter):
         # TODO Implement me
+        self.renderer = htmlWriter
         pass
 
     def header(self, title):
         # TODO Implement me
+        self.renderer.header()
+        self.renderer.title(title)
         pass
 
     def paragraph(self, text):
         # TODO Implement me
+        self.renderer.start_body()
+        self.renderer.body(text)
+        self.renderer.end_body
         pass
 
     def footer(self):
         # TODO Implement me
+        self.renderer.footer()
         pass
 
 
